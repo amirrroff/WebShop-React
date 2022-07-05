@@ -1,1 +1,1 @@
-[codeTime] (https://web-shop-react-phi.vercel.app/)
+https://web-shop-react-phi.vercel.app/
