@@ -1,4 +1,1 @@
-https://web-shop-react-phi.vercel.app/
-web-shop-react-amirafsharinezhad.vercel.app
-web-shop-react-phi.vercel.app
-web-shop-react-git-main-amirafsharinezhad.vercel.app
+https://web-shop-react-6po4u32x6-amirafsharinezhad.vercel.app/
