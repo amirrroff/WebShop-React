@@ -1,13 +1,13 @@
-name : Build un release Next.js web application
-on : push 
+name: Build un release Next.js web application
+on: push 
 jobs: 
   build-project:
-    name : Build Next.js application
+    name: Build Next.js application
       runs-on: ubuntu-latest
       steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      -name : Install NPM dependencies
+      - name: Install NPM dependencies
       run: npm Install
-    -name: Build static website
+    - name: Build static website
     run: npm run build
