@@ -9,6 +9,7 @@ import Config from '../components/Config';
 
 
 
+
 function Contact() {
   const [showModal, setShowModal] = useState(false)
 
@@ -85,7 +86,7 @@ function Contact() {
                 <h1>vielen Dnak</h1>
                 <p>Email wurde gesendet</p>
                 </Config>}
-               
+        
              
           </div>
           </div>

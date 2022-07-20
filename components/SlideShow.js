@@ -8,27 +8,19 @@ import e from '../assets/5.jpg'
 import Image from 'next/image';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Link from 'next/link';
+
 
 
 function SlideShow() {
   var settings = {
     dots: true,
     infinite: true,
-    speed: 500,
+    speed: 1000,
     slidesToShow: 1,
     slidesToScroll: 1
   };
   return (
-    <div className='mb-8 relative '>
-      <div className='flex- '>
-        <Link href="/shop">
-      <button className='border-2 border-black rounded-sm px-16 py-4 mt-36 z-40 ml-10 bg-black text-white absolute sm:mt-48 sm:ml-20 md:ml-48 lg:left-24 lg:mt-72 xl:left-56 2xl:mt-80 2xl:left-48 2xl:px-48 2xl:py-24 2xl:text-xl '>Herren</button>
-      </Link>
-      <Link href="/shop">
-      <button className='border-2 border-black rounded-sm px-16 py-4 mt-36 z-40 ml-72 bg-black text-white absolute sm:mt-48 sm:ml-96 md:right-64 lg:right-72 lg:mt-72 xl:right-96 2xl:mt-80 2xl:right-96 2xl:px-48 2xl:py-24 2xl:text-xl'>Damen</button>
-      </Link>
-      </div>
+    <div className='mb-8 relativ'>
       
             <Slider {...settings}>
       <div>
