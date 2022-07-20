@@ -16,6 +16,23 @@ a {
   box-sizing: border-box;
   
 }
+.send-backdrop {
+    position: fixed;
+    top:0;
+    left: 0;
+    width:100%;
+    height:100%;
+    background: rgba(0,0,0,0.5);
+    padding-top:300px;
+}
+.send {
+  padding: 40px;
+  max-width: 480px;
+  margin: 100px auto;
+  background: #fff;
+  border-radius: 10px;
+  text-align: center;
+}
 
 
 @tailwind base;

@@ -1,11 +1,36 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { FiMapPin } from "react-icons/fi";
 import { FiPhone } from "react-icons/fi";
 import { IoMailOutline } from "react-icons/io5";
 import Head from 'next/head'
+import  { useRef } from 'react';
+import emailjs from '@emailjs/browser';
+import Config from '../components/Config';
+
 
 
 function Contact() {
+  const [showModal, setShowModal] = useState(false)
+
+
+    const handleClose =()=>{
+      setShowModal(false)
+    }
+
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs.sendForm('service_dfqossz', 'template_4w3f0pl', form.current, 'S4LkGEuNJEtCzceXF')
+      .then((result) => {
+          console.log(result.text);
+      }, (error) => {
+          console.log(error.text);
+      });
+      e.target.reset()
+  };
+
   return (
     
     <div className='background'>
@@ -40,21 +65,27 @@ function Contact() {
                 <div className='ml-4 text-md tracking-wide font-semibold w-40'>amir@gmail.com</div>
               </div>
               </div>
-              <form className='p-6 flex flex-col justify-center'>
+
+              <form className='p-6 flex flex-col justify-center' ref={form} onSubmit={sendEmail}>
                 <div className='flex flex-col'>
                   <label className='hidden'>Full Name</label>
-                  <input placeholder='Full Name' className='w-100 mt-2 py-3 px-3 rounded-lg bg-white  border border-gray-400 dark:border-gray-700 text-gray-800 font-semibold  focus:outline-none' />
+                  <input placeholder='Full Name' className='w-100 mt-2 py-3 px-3 rounded-lg bg-white  border border-gray-400 dark:border-gray-700 text-gray-800 font-semibold  focus:outline-none' name='name' />
                 </div>
                 <div className='flex flex-col'>
                   <label className='hidden'>Email</label>
-                  <input placeholder='Email' className='w-100 mt-2 py-3 px-3 rounded-lg bg-white  border border-gray-400 dark:border-gray-700 text-gray-800 font-semibold  focus:outline-none' />
+                  <input placeholder='Email' className='w-100 mt-2 py-3 px-3 rounded-lg bg-white  border border-gray-400 dark:border-gray-700 text-gray-800 font-semibold  focus:outline-none' type="email" name="email" required />
                 </div>
                 <div className='flex flex-col'>
-                  <label className='hidden'>Telephone Number</label>
-                  <input placeholder='Telephone Number' className='w-100 mt-2 py-3 px-3 rounded-lg bg-white  border border-gray-400 dark:border-gray-700 text-gray-800 font-semibold  focus:outline-none' />
+                  <label className='hidden'>your text </label>
+                  <textarea placeholder='your text...' className='w-100 mt-2 py-3 px-3 rounded-lg bg-white  border border-gray-400 dark:border-gray-700 text-gray-800 font-semibold  focus:outline-none' name='message' />
                 </div>
-                <button className='md:w-32 bg-blue-600 hover:bg-blue-dark text-white font-bold py-3 rounded-lg mt-3 hover:bg-blue-700 transition ease-out duration-300'>submit</button>
+                <button className='md:w-32 bg-blue-600 hover:bg-blue-dark text-white font-bold py-3 rounded-lg mt-3 hover:bg-blue-700 transition ease-out duration-300' value="send" onClick={()=>setShowModal(true)}>submit</button>
               </form>
+              {showModal && <Config handleClose={handleClose} >
+                <h1>vielen Dnak</h1>
+                <p>Email wurde gesendet</p>
+                </Config>}
+               
              
           </div>
           </div>

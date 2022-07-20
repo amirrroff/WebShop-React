@@ -1,6 +1,7 @@
 import { BiHeart } from "react-icons/bi";
 import Head from 'next/head'
 
+
 export const getStaticProps = async()=>{
     const res = await fetch('https://fakestoreapi.com/products')
     const data =await res.json()
@@ -19,7 +20,6 @@ export const getStaticProps = async()=>{
                 background-image: url("https://img.freepik.com/free-photo/flat-lay-with-women-accessories_72402-379.jpg?w=1380");
                 background-repeat: no-repeat;
                 background-size: 100% 100%;;
-                
               }
         `}
       </style>
