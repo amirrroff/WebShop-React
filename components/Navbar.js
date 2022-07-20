@@ -6,10 +6,15 @@ import { IoClose } from "react-icons/io5";
 
 function Navbar() {
   const [showNav, setShowNav] = useState(false)
+  const [showNotification , setShowNotification] = useState(false)
+
 
   const handleShowNav= () =>{
     setShowNav(!showNav)
-    
+  }
+
+  const handleShowNotfication =()=>{
+    setShowNotification(!showNotification)
   }
   return (
     <div>
@@ -56,7 +61,7 @@ function Navbar() {
         </div>
       </div>
       <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-        <button type="button" className="bg-gray-800 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
+        <button type="button" className="bg-gray-800 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" onClick={handleShowNotfication} >
           <span className="sr-only">View notifications</span>
           <div className='border bg-orange-500 h-6 w-6 rounded-full text-white'>
             2
@@ -82,13 +87,16 @@ function Navbar() {
               From: "transform opacity-100 scale-100"
               To: "transform opacity-0 scale-95"
           -->*/}
+          {showNotification ? 
           <div className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-50" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" >
             {/*<!-- Active: "bg-gray-100", Not Active: "" -->*/}
             <a href="#" className="block px-4 py-2 text-sm text-gray-700" role="menuitem"  id="user-menu-item-0">Your Profile</a>
             <a href="#" className="block px-4 py-2 text-sm text-gray-700" role="menuitem"  id="user-menu-item-1">Settings</a>
             <a href="#" className="block px-4 py-2 text-sm text-gray-700" role="menuitem"  id="user-menu-item-2">Sign out</a>
-            
-          </div>
+          </div> 
+          : ""
+           }
+  
         </div>
       </div>
     </div>
