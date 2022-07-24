@@ -3,10 +3,13 @@ import React, { useState } from 'react'
 import Image from 'next/image';
 import { MdShoppingBag } from "react-icons/md";
 import { IoClose } from "react-icons/io5";
+import { useSelector } from 'react-redux'
+
 
 function Navbar() {
   const [showNav, setShowNav] = useState(false)
   const [showNotification , setShowNotification] = useState(false)
+  const auth = useSelector((state) => state.auth)
 
 
   const handleShowNav= () =>{
@@ -51,16 +54,24 @@ function Navbar() {
         <div className="flex-shrink-0 flex items-center">
           
         </div>
-        <div className="hidden sm:block sm:ml-6">
-          <div className="flex space-x-4">
+        <div className="hidden sm:block ">
+          <div className="flex space-x-2">
             {/*<!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->*/}
             <Link href="/"><a className=" text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Home</a></Link>
             <Link href="/Contact"><a className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Contact</a></Link>
-            <Link href="/shop"><a className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Shop</a></Link>
+            <Link href="/Shop"><a className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Shop</a></Link>
+            {(!auth || !auth.logged) &&(
+            <>
+            <Link href="/Login"><a className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium absolute right-0">Login</a></Link>
+            </>
+            )}
           </div>
         </div>
       </div>
+      
       <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+      {auth && auth.logged && (
+              <div>
         <button type="button" className="bg-gray-800 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" onClick={handleShowNotfication} >
           <span className="sr-only">View notifications</span>
           <div className='border bg-orange-500 h-6 w-6 rounded-full text-white'>
@@ -68,14 +79,20 @@ function Navbar() {
           </div>
           <MdShoppingBag  />
         </button>
+        </div>
+      )}
 
         {/*<!-- Profile dropdown -->*/}
         <div className="ml-3 relative">
           <div>
+          {auth && auth.logged && (
+              <div>
             <button type="button" className="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
               <span className="sr-only">Open user menu</span>
               <Image className="h-8 w-8 rounded-full" width={35} height={35} src="/Person.avif" alt="unplash" />
             </button>
+            </div>
+          )}
           </div>
           {/*<!--
             Dropdown menu, show/hide based on menu state.
@@ -108,7 +125,12 @@ function Navbar() {
   <div className="px-2 pt-2 pb-3 space-y-1">
       <Link href="/"><a className="  text-white hover:bg-gray-700 px-3 py-2 rounded-md text-base font-medium block" aria-current="page" onClick={()=>setShowNav(false)}>Home</a></Link>
       <Link href="/Contact"><a className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 block rounded-md text-base  font-medium" onClick={()=>setShowNav(false)}>Contact</a></Link>
-      <Link href="/shop"><a className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 block rounded-md text-base font-medium" onClick={()=>setShowNav(false)}>Shop</a></Link>
+      <Link href="/Shop"><a className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 block rounded-md text-base font-medium" onClick={()=>setShowNav(false)}>Shop</a></Link>
+      {(!auth || !auth.logged) &&(
+            <>
+      <Link href="/Login"><a className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 block rounded-md text-base font-medium" onClick={()=>setShowNav(false)}>Login</a></Link>
+        </>
+      )}
   </div>
 </div> 
 :

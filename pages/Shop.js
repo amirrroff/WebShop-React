@@ -12,14 +12,12 @@ export const getStaticProps = async()=>{
   }
   
   
-  const Ninjas = ({ ninjas }) => {
+  const Shop = ({ ninjas }) => {
     return ( 
       <div className='background'>
        <style jsx>{`
               .background {
-                background-image: url("https://img.freepik.com/free-photo/flat-lay-with-women-accessories_72402-379.jpg?w=1380");
-                background-repeat: no-repeat;
-                background-size: 100% 100%;;
+                background-image: url("https://cdn.pixabay.com/photo/2016/11/22/21/57/apparel-1850804_960_720.jpg");
               }
         `}
       </style>
@@ -55,4 +53,4 @@ export const getStaticProps = async()=>{
      );
   }
    
-  export default Ninjas;
+  export default Shop;
