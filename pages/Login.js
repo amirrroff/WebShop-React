@@ -47,12 +47,12 @@ const Login = () => {
       </Head>
       <div>
       <form className='py-36 min-h-screen' onSubmit={handleSubmit}>
-        <div className="bg-gray-200 rounded-md p-2 mx-auto w-8/12 h-8/12  ">
-            <div className="text-left ml-8">
+        <div className="bg-gray-200 rounded-md p-2 mx-auto w-10/12 h-8/12 sm:w-6/12 md:w-6/12 ">
+            <div className="text-center">
                 <h2 className="pb-2 text-center font-bold text-2xl">LOGIN</h2>
                 
                 <hr className="border-2 border-gray-400 mb-4" />
-                <label className="font-bold ">Email</label>
+                <label className="font-bold">Email</label>
                 <br className='mb-2' />
                     <InputEmail placeholder="Email adresse" onChange={(value)=>handleOnChange("email", value)} required />
                     <br />
@@ -60,7 +60,7 @@ const Login = () => {
                     <br className='mb-2' />
                     <InputPassword placeholder="Password" onChange={(value)=>handleOnChange("password", value)} required/>
                     <br />
-                    <Button type='submit'>Login</Button>
+                    <Button type='submit' className="border-1 bg-cyan-500 rounded-xl h-8 text-white hover:bg-cyan-700 mb-8 sm:w-5/6 md:w-5/6 mx-auto w-6/12">Login</Button>
                     <br />
                     <Link href="/Register"><a className='text-blue-400 hover:text-blue-700'>Register</a></Link>
             </div>

@@ -21,8 +21,8 @@ const Register = () => {
       </Head>
       <div>
       <form className='py-36 min-h-screen'>
-        <div className="bg-gray-200 rounded-md p-2 mx-auto w-8/12 h-8/12  ">
-            <div className="text-left ml-8">
+      <div className="bg-gray-200 rounded-md p-2 mx-auto w-10/12 h-8/12 sm:w-6/12 md:w-6/12 ">
+            <div className="text-center">
                 <h2 className="pb-2 text-center font-bold text-2xl">Register</h2>
                 <p>Please fill in this form to create an account.</p>
                 <hr className="border-2 border-gray-400 mb-4" />
@@ -42,7 +42,7 @@ const Register = () => {
                     <br className='mb-2' />
                     <InputPassword placeholder="Password" required/>
                     <br />
-                    <Button type='submit'>Create Account</Button>
+                    <Button type='submit' className="border-1 bg-cyan-500 rounded-xl h-8 text-white hover:bg-cyan-700 mb-8 sm:w-5/6 md:w-5/6 mx-auto w-6/12">Create Account</Button>
                     <br />
             </div>
             </div>
